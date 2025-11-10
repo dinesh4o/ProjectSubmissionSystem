@@ -5,7 +5,7 @@ services:
     plan: free
     autoDeploy: true
     dockerfilePath: backend/Dockerfile
-    healthCheckPath: /api/projects
+    healthCheckPath: /
     envVars:
       - key: JAVA_TOOL_OPTIONS
         value: "-XX:MaxRAMPercentage=75.0"
