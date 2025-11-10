@@ -1,4 +1,12 @@
-const backendUrl = "https://project-rtvr.onrender.com/api"; // backend API base
+let backendUrl = "https://projectsubmissionsystem.onrender.com/api"; // backend API base
+// Allow runtime override and auto-fix old domain if cached
+try{
+  const override = localStorage.getItem('psp_backend_url');
+  if(override && typeof override === 'string'){ backendUrl = override; }
+}catch{}
+if(backendUrl.includes('project-rtvr.onrender.com')){
+  backendUrl = 'https://projectsubmissionsystem.onrender.com/api';
+}
 
 let currentUser = null;
 const $ = (id) => document.getElementById(id);
