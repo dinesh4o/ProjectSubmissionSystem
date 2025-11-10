@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: project-submission-backend
+    env: docker
+    plan: free
+    autoDeploy: true
+    dockerfilePath: backend/Dockerfile
+    healthCheckPath: /api/projects
+    envVars:
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:MaxRAMPercentage=75.0"
+    # Render uses repo root as build context; Dockerfile copies from ./backend/*
+    # No additional build or start commands needed because Dockerfile defines them.
+
+
